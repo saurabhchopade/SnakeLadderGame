@@ -13,9 +13,10 @@ playerPosition=0;
 	do
 		dieValue=$((RANDOM%6 + 1));
 		playValue=$((RANDOM%3));
-
+		
 		if [ $playValue -eq $NOPLAY ]
 		then
+			#This is NoPlay Condition
 			playerPosition=$playerPosition;
 
 		elif [ $playValue -eq $LADDERPLAY ]
@@ -37,7 +38,7 @@ playerPosition=0;
 				playerPosition=$STARTPOINT;
 			fi;
 		fi;
-#Checking Player Position Reached or Not
+		#Checking Player Position Reached or Not
 		if [ $playerPosition -eq $ENDPOINT ]
 		then
 			echo "Player Won The GAME";
