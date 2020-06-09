@@ -22,7 +22,7 @@ playerPosition=0;
 		elif [ $playValue -eq $LADDERPLAY ]
 		then
 			#This Is Ladder Play
-			#checkEnd variable for to check ladder extends Max point value
+			#exact Hundred condition is here by help of checkend
 			checkEnd=$playerPosition;
 			playerPosition=$(( $playerPosition + $dieValue ));
 			if [ $playerPosition -gt $ENDPOINT ]
