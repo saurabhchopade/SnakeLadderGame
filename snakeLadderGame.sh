@@ -1,3 +1,4 @@
+
 #!/bin/bash -x
 echo "Welcome To Snake Ladder Game";
 #CONSTANTS
@@ -8,9 +9,13 @@ STARTPOINT=0;
 ENDPOINT=100;
 #VARIABLES
 playerPosition=0;
+dieCounter=0;
+#Dictionary
+declare -A positionStore;
 #This Loop Runs Until Player position Not reached upto Endpoint
 	while :
 	do
+		((dieCounter++));
 		dieValue=$((RANDOM%6 + 1));
 		playValue=$((RANDOM%3));
 		
@@ -38,10 +43,19 @@ playerPosition=0;
 				playerPosition=$STARTPOINT;
 			fi;
 		fi;
+
+		#maintaining The Positon After Die Rolling
+		positionStore[ $playerPosition ]=$dieValue;
 		#Checking Player Position Reached or Not
 		if [ $playerPosition -eq $ENDPOINT ]
 		then
 			echo "Player Won The GAME";
+			echo "Dice Rolled count=" $dieCounter;
+			#Displayig position and dice Value;
+			for i in "${!positionStore[@]}"
+			do
+  			echo "Position  : $i"   "DICE Value: ${positionStore[$i]}";
+			done
 			break;
 		fi;
 	done
