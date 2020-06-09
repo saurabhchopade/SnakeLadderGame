@@ -81,7 +81,7 @@ declare -A player2Storage;
 			player1Position=$playerPosition;
 			player1Storage[ $playerPosition ]=$dieValue;
 
-      else
+      		else
 
 			#I AM PLAYER 2
 			if [ $ladderCheck -eq 1 ]
@@ -93,7 +93,7 @@ declare -A player2Storage;
 			flag=1;
 			fi;
 			#Storing Position
-         player2Position=$playerPosition;
+         		player2Position=$playerPosition;
 			player2Storage[ $playerPosition ]=$dieValue;
 	 	fi;
 		#-----Multiplayer Code Ended Here--------------
@@ -111,9 +111,9 @@ declare -A player2Storage;
 				echo "Dice Rolled count=" $dieCounter;
 				printf "\n \n";
 				for i in "${!player1Storage[@]}"
-         	do
-            	echo "Position  : $i"   "DICE Value: ${player1Storage[$i]}";
-         	done
+         			do
+            				echo "Position  : $i"   "DICE Value: ${player1Storage[$i]}";
+         			done
 
 			else
 				echo "*****CONGRATS*****";
@@ -123,11 +123,10 @@ declare -A player2Storage;
 				echo "Dice Rolled count=" $dieCounter;
 				printf "\n \n";
 				for i in "${!player2Storage[@]}"
-         	do
-            	echo "Position  : $i"   "DICE Value: ${player2Storage[$i]}";
-         	done
+         			do
+            				echo "Position  : $i"   "DICE Value: ${player2Storage[$i]}";
+         			done
 			fi;
-
 			break;
 		fi;
 	done
